@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Mock Rest service on PWS</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+<div class="container">
+	<h2>List of existing mock services</h2>
+	<table class="table table-striped">
+		<tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Response JSON</th>
+      </tr>
+		<tr th:each="mock : ${allMocks}">
+			<th th:text="${mock.id}">id</th>
+			<th th:text="${mock.name}">name</th>
+			<th th:text="${mock.response}">name</th>
+		</tr>
+	</table>
+	
+    
+    <blockquote>
+  		You have the following options to call your mock service
+  			<ul>
+			  	<li>http://{your-app-url-on-pws}/v1/mock/getById/{id}</li>
+			  	<li>http://{your-app-url-on-pws}/v1/mock/getByName/{name}</li>
+			</ul>
+	</blockquote>
+    
+	<p/>
+	<p/>
+	<a href="add.html" class="btn btn-default" role="button">Add a new mock service</a>
+	
+	
+</div><!-- container -->	
+	<p/>
+	<p/>	
+	<p/>
+	<p/>	
+</body>
+</html>
