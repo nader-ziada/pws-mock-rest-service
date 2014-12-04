@@ -61,4 +61,17 @@ public class MockRestServiceController {
     	String url = "http://" + applicationUris.get(0) + "/v1/mock/getByName/" + mock.getName();
     	return url;
     }
+    
+    @RequestMapping(value="/update", method=RequestMethod.POST)
+    public String update(MockRestService mock) {
+    	System.out.println("*****" + mock.getId() + mock.getName());
+    	repository.save(mock);
+    	
+    	Map<String, Object> properties = instanceInfo.getProperties();
+    	@SuppressWarnings("unchecked")
+		List<String> applicationUris = (List<String>) properties.get("application_uris");
+    	String url = "http://" + applicationUris.get(0) + "/v1/mock/getByName/" + mock.getName();
+    	return url;
+    }
+    
 }

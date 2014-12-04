@@ -13,11 +13,13 @@
         <th>Id</th>
         <th>Name</th>
         <th>Response JSON</th>
+        <th> </th>
       </tr>
 		<tr th:each="mock : ${allMocks}">
 			<th th:text="${mock.id}">id</th>
 			<th th:text="${mock.name}">name</th>
 			<th th:text="${mock.response}">name</th>
+			<th><a href="#" data-th-href="@{/update(id=${mock.id})}">edit</a></th>
 		</tr>
 	</table>
 	
@@ -35,10 +37,11 @@
 	<a href="add.html" class="btn btn-default" role="button">Add a new mock service</a>
 	
 	
+	
 </div><!-- container -->	
-	<p/>
-	<p/>	
-	<p/>
-	<p/>	
+<p/>
+<p/>	
+<p/>
+<p/>	
 </body>
 </html>

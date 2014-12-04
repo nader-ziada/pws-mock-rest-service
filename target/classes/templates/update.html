@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Mock Rest service on PWS</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+
+<div class="container">
+	<h2>Update mock service</h2>
+    <form class="form-horizontal" action="#" th:action="@{/update}" th:object="${mock}" method="post">    
+    	<p>id: <input type="text" th:field="*{id}" readonly="readonly" /></p>
+    	<p>name: <input type="text" th:field="*{name}" readonly="readonly" /></p>
+        <p>json: <input type="text" size="400" th:field="*{response}" /></p>
+        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="reset" class="btn btn-default">Reset</button>
+    </form>
+
+</div><!-- container -->
+<p/>
+<p/>	
+<p/>
+<p/>	
+</body>
+</html>

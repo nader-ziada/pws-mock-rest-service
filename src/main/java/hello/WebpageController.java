@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class WebpageController {
@@ -36,6 +37,26 @@ public class WebpageController {
     	repository.save(new MockRestService(mock.getName(), mock.getResponse()));
     	MockRestService mockInstance = repository.findByName(mock.getName());
     	model.addAttribute("mock", mockInstance);
+        return "result";
+    }
+    
+    @RequestMapping(value = "/update", method=RequestMethod.GET)
+    public String showFormForEdit(@RequestParam(value="id", required=true) String mockId, Model model) {
+    	System.out.print("mockId********" + mockId);
+    	MockRestService mock = repository.findById(mockId);
+    	if(mock == null){
+    		return "index";
+    	}
+    	model.addAttribute("mock", mock);
+        return "update";
+    }
+    
+    @RequestMapping(value = "/update", method=RequestMethod.POST )
+    public String submitFormUpdate(@ModelAttribute MockRestService mock, Model model) {
+    	MockRestService mock1 = repository.findOne(mock.getId());
+    	mock1.setResponse(mock.getResponse());
+    	repository.save(mock1);
+    	model.addAttribute("mock", mock1);
         return "result";
     }
 

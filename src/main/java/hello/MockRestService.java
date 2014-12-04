@@ -13,6 +13,13 @@ public class MockRestService {
 	public MockRestService(){
 	}
 	
+	public MockRestService(String id, String name, String response) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.response = response;
+	}
+	
 	public MockRestService(String name, String response) {
 		super();
 		this.name = name;
