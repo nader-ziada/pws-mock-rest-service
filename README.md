@@ -1,3 +1,6 @@
+Archived Repo
+
+
 # PWS Mock REST Service
 
 Mock REST service works on PWS (Cloud Foundry) to provide a mock JSON response to a REST api call. Project is developed using Java and Spring Boot. Spring Cloud connector is used to get information about the application instance running on Cloud Foundry.
